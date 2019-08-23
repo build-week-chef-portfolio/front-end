@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import axios from 'axios';
 
-
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
+import Home from './components/Home';
+import NavMenu from './components/NavMenu';
 
 import './App.css';
 
@@ -11,7 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+      {/* <Nav /> */}
+      <Home />
+      <NavMenu />
     </div>
   );
 }
