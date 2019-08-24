@@ -18,7 +18,7 @@ export default function Home() {
           <h3>View Protfolio's</h3>
           <button>Hi</button>
           <img />
-          <Field />
+          {/* <Field /> */}
         </div>
       </section>
       <section className="middle-cta">
