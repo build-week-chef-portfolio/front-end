@@ -1,6 +1,12 @@
 import React from 'react';
 import { withFormik, Form, Field } from "formik";
 
+/*
+Do we want to add a search bar? 
+Our Home page will display cards from semantic-ui like foodgawker.com
+
+*/
+
 export default function Home() {
   return (
     <div>
@@ -12,7 +18,7 @@ export default function Home() {
           <h3>View Protfolio's</h3>
           <button>Hi</button>
           <img />
-          <Form />
+          <Field />
         </div>
       </section>
       <section className="middle-cta">
