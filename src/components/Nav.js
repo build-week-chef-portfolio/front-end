@@ -4,7 +4,7 @@ import {
   Route,
   NavLink,
   Redirect
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import Home from './Home';
 import Portfolio from './Portfolio';
