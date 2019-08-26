@@ -10,7 +10,7 @@ export default function FoodCard(props)
                 image={props.pic}
                 header='Link'
                 meta='Predator of Pots'
-                description={props}
+                description={props.description}
                 
             />
         </div>
