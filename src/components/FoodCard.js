@@ -1,7 +1,12 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Icon } from 'semantic-ui-react';
 
-
+const likes = (
+    <a>
+        <Icon name='thumbs up outline' />
+        31 Likes
+    </a>
+)
 export default function FoodCard(props)
 {
     return(
@@ -11,7 +16,7 @@ export default function FoodCard(props)
                 header='Link'
                 meta='Predator of Pots'
                 description={props.description}
-                
+                extra = {likes}
             />
         </div>
     )
