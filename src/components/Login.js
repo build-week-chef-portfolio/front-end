@@ -3,7 +3,7 @@ import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
 
-const Login = ({ errors, touched, values, status }) => {
+const Login = ({ errors, touched, status }) => {
 
   const [user, setUser] = useState([]);
 
@@ -28,7 +28,7 @@ const Login = ({ errors, touched, values, status }) => {
         <button type="submit" value="Login">Submit!</button>
       </Form>
       {user.map(users => (
-        <p key={users.id}>{users.name}</p>
+        <p key={users.id}>{users.message}</p>
       ))}
     </div>
   )
@@ -50,7 +50,7 @@ const formikHOC = withFormik({
       .post("https://chef-portfolio-buildweeks-be.herokuapp.com/api/auth/login", values)
       .then(res => {
         console.log(res);
-        // setStatus(r);
+        setStatus(res.data);
         resetForm();
       })
       .catch(err => console.error(err));

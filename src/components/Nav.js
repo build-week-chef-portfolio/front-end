@@ -36,17 +36,18 @@ export default function Nav() {
   return (
     <div>
       <Router>
-        <NavLink exact to='/'>Home</NavLink>
-        <NavLink to="portfolio">Portfolio</NavLink>
-        <NavLink to="login">Login</NavLink>
-        <NavLink to="signup">Sign Up</NavLink>
+        <div className="nav">
+          <NavLink exact to='/'>Home</NavLink>
+          <NavLink to="portfolio">Portfolio</NavLink>
+          <NavLink to="login">Login</NavLink>
+          <NavLink to="signup">Sign Up</NavLink>
 
-        <Route path="/" exact component={Home} />
-        <Route path="/portfolio" exact component={Portfolio} />
-        <PrivateRoute path="/portfolio" exact component={Portfolio} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/signup" exact component={Signup} />
-
+          <Route path="/" exact component={Home} />
+          <Route path="/portfolio" exact component={Portfolio} />
+          <PrivateRoute path="/portfolio" exact component={Portfolio} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={Signup} />
+        </div>
       </Router>
     </div>
   );
