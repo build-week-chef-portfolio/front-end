@@ -6,14 +6,14 @@ import FoodCard from './components/FoodCard';//Testing this one
 // import NavMenu from './components/NavMenu';
 
 import './App.css';
-const images = './images/LinkCooking';
+// const images = './images/LinkCooking';
 
 function App() {
 
   return (
     <div className="App">
       <Nav />
-      <FoodCard pic={require('./images/LinkCooking.jpg')} description='I make risotto!'/>
+      {/* <FoodCard pic={require('./images/LinkCooking.jpg')} description='I make risotto!'/> */}
       {/* <NavMenu /> */}
     </div>
   );
