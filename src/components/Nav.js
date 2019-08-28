@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -26,7 +26,7 @@ const auth = {
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     auth.isAuthenticated === true
-      ? <Nav {...props} />
+      ? <Redirect to="/protfolio" />
       : <Redirect to='/login' />
   )} />
 )
