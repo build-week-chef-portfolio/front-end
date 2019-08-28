@@ -7,13 +7,8 @@ export default function Home() {
     <div>
       <div className="top-content">
         <div>
-          <h1>Welcome to Chef Protfolio</h1>
-          <h3>Become a Chef</h3>
-          <button>Hi</button>
-          <h3>View Protfolio's</h3>
-          <button>Hi</button>
-          <img />
-          {/* <Field /> */}
+          <h1>Check out Chef Portfolio's</h1>
+          <h3>Delicious food</h3>
         </div>
       </div>
       <div className="middle-cta">
