@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  NavLink,
   Redirect
 } from 'react-router-dom';
 
@@ -32,23 +31,34 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 
-export default function Nav() {
+export default function TabNav(props) {
   return (
     <div>
-      <Router>
-        <div className="nav">
-          <NavLink exact to='/'>Home</NavLink>
-          <NavLink to="portfolio">Portfolio</NavLink>
-          <NavLink to="login">Login</NavLink>
-          <NavLink to="signup">Sign Up</NavLink>
+      <Route
+        exact
+        path="/"
+        component={Home}
+      />
 
-          <Route path="/" exact component={Home} />
-          <Route path="/portfolio" exact component={Portfolio} />
-          <PrivateRoute path="/portfolio" exact component={Portfolio} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-        </div>
-      </Router>
+      <Route
+        path="/portfolio"
+        render={props => <Portfolio {...props} />}
+      />
+
+      {/* <PrivateRoute
+        path="/portfolio"
+        render={props => <Portfolio {...props} />}
+      /> */}
+
+      <Route
+        path="/login"
+        render={props => <Login {...props} />}
+      />
+
+      <Route
+        path="/signup"
+        render={props => <Signup {...props} />}
+      />
     </div>
   );
 }

@@ -8,14 +8,10 @@ export default function Home() {
       <div className="top-content">
         <div>
           <h1>Check out Chef Portfolio's</h1>
-          <h3>Delicious food</h3>
         </div>
       </div>
       <div className="middle-cta">
-        <div>
-          <FoodCard />
-
-        </div>
+        <FoodCard />
         <div>
           <p>&copy; 2019 Chef Protfolio</p>
         </div>

@@ -1,18 +1,17 @@
 import React from 'react';
 
-import Nav from './components/Nav';
+import TabNav from './components/TabNav';
 
 import './App.css';
 import './styles/Login.scss';
 import './styles/Nav.scss';
 
-function App() {
+export default function App() {
 
   return (
     <div className="App">
-      <Nav />
+      <TabNav />
     </div>
   );
 }
 
-export default App;

@@ -50,8 +50,7 @@ const formikHOC = withFormik({
       .post("https://chef-portfolio-buildweeks-be.herokuapp.com/api/auth/login", values)
       .then(res => {
         console.log(res);
-        setStatus(res.data);
-        resetForm();
+        localStorage.setItem("token", res.data.token);
       })
       .catch(err => console.error(err));
   }
@@ -60,3 +59,5 @@ const formikHOC = withFormik({
 const UserFormWithFormik = formikHOC(Login);
 
 export default UserFormWithFormik;
+
+// { headers: { Authorization: localStorage.token } }
