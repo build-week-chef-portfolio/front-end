@@ -22,7 +22,7 @@ export default function CardList(props){
     }, []);
 
     dataToUse.map(
-        <FoodCard pic={dataToUse.data.pic}/>
+        <FoodCard data={dataToUse}/>
     );
 
     return(
