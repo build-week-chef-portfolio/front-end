@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import FoodCard from './FoodCard';
 
 export default function CardList(props){
     const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +21,9 @@ export default function CardList(props){
             });
     }, []);
 
-
+    dataToUse.map(
+        <FoodCard pic={dataToUse.data.pic}/>
+    );
 
     return(
         <div>

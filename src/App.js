@@ -13,7 +13,7 @@ const id = 5;
   return (
     <div className="App">
       <Nav />
-      <CardList address="https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts/" />
+      <CardList address="https://chef-portfolio-buildweeks-be.herokuapp.com/api/" />
     </div>
   );
 }
