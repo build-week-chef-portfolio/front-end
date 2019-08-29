@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FoodCard from './FoodCard';
 
-export default function CardList(props){
+export default function GetData(props){
     const [isLoading, setIsLoading] = useState(false);
     const [dataToUse, setDataToUse] = useState([]);
     const webAddress = props.address;
@@ -21,13 +21,7 @@ export default function CardList(props){
             });
     }, []);
 
-    dataToUse.map(
-        <FoodCard data={dataToUse}/>
-    );
-
     return(
-        <div>
-            {console.log(dataToUse)}
-        </div>
+        dataToUse
     );
 }
