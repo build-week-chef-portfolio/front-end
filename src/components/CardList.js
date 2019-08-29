@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function APIfetch(address){
+export default function CardList(props){
     const [isLoading, setIsLoading] = useState(false);
     const [dataToUse, setDataToUse] = useState([]);
-    const webAddress = address;
+    const webAddress = props.address;
     useEffect(() => {
         setIsLoading(true);
         axios
             .get(webAddress)
             .then(res => {
                 console.log("APIfetch.js: function APIfetch: useEffect: axios.then: result ", res);
-                setDataToUse(res.data);
+                setDataToUse(res);
                 setIsLoading(false);
             })
             .catch(err => {
@@ -20,5 +20,11 @@ export default function APIfetch(address){
             });
     }, []);
 
-    return dataToUse;
+
+
+    return(
+        <div>
+            {console.log(dataToUse)}
+        </div>
+    );
 }

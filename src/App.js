@@ -1,20 +1,19 @@
 import React from 'react';
 
 import Nav from './components/Nav';
-import Home from './components/Home';
-import FoodCard from './components/FoodCard';//Testing this one
-// import NavMenu from './components/NavMenu';
+import CardList from './components/CardList';
+
 
 import './App.css';
 // const images = './images/LinkCooking';
 
 function App() {
+const id = 5;
 
   return (
     <div className="App">
       <Nav />
-      {/* <FoodCard pic={require('./images/LinkCooking.jpg')} description='I make risotto!'/> */}
-      {/* <NavMenu /> */}
+      <CardList address="https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts/" />
     </div>
   );
 }
