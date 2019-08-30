@@ -1,21 +1,19 @@
 import React from 'react';
 
-import Nav from './components/Nav';
-import GetData from './components/GetData';
+import TabNav from './components/TabNav';
 
 
 import './App.css';
-// const images = './images/LinkCooking';
+import './styles/Login.scss';
+import './styles/Nav.scss';
 
-function App() {
-const id = 5;
+
+export default function App() {
 
   return (
     <div className="App">
-      <Nav />
-      
+      <TabNav />
     </div>
   );
 }
 
-export default App;
