@@ -1,20 +1,19 @@
 import React from 'react';
 
 import Nav from './components/Nav';
-import Home from './components/Home';
-import FoodCard from './components/FoodCard';//Testing this one
-// import NavMenu from './components/NavMenu';
+import GetData from './components/GetData';
+
 
 import './App.css';
 // const images = './images/LinkCooking';
 
 function App() {
+const id = 5;
 
   return (
     <div className="App">
       <Nav />
-      {/* <FoodCard pic={require('./images/LinkCooking.jpg')} description='I make risotto!'/> */}
-      {/* <NavMenu /> */}
+      
     </div>
   );
 }
