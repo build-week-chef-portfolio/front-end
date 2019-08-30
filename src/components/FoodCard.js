@@ -1,29 +1,5 @@
-// import React from 'react';
-// import { Card, Icon } from 'semantic-ui-react';
-
-// const likes = (
-//     <a>
-//         <Icon name='thumbs up outline' />
-//         31 Likes
-//     </a>
-// )
-// export default function FoodCard(props)
-// {
-//     return(
-//         <div>
-//             <Card
-//                 image={props.pic}
-//                 header='Link'
-//                 meta='Predator of Pots'
-//                 description={props.description}
-//                 extra = {likes}
-//             />
-//         </div>
-//     )
-
-// }
-
 import React, { useEffect, useState } from 'react';
+import { Card, Icon } from 'semantic-ui-react';
 import axios from 'axios';
 
 export default function Portfolio() {
@@ -46,10 +22,12 @@ export default function Portfolio() {
             <h1>View Chef Posts</h1>
             {posts.map(post => (
                 <div>
-                    <h3>{post.chef_name}</h3>
-                    <p>{post.recipe_title}</p>
-                    <p>{post.chef_location}</p>
-                    <p>{post.item_ingredients}</p>
+                    <Card>
+                        <h3>{post.chef_name}</h3>
+                        <p>{post.recipe_title}</p>
+                        <p>{post.chef_location}</p>
+                        <p>{post.item_ingredients}</p>
+                    </Card>
                 </div>
             ))
             }

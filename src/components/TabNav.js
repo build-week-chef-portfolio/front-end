@@ -26,6 +26,16 @@ const panes = [
   },
   {
     menuItem: (
+      <Menu.Item key='create'>
+        <NavLink to="/create">
+          Create
+        </NavLink>
+      </Menu.Item>
+    ),
+    render: () => <Tab.Pane><AppRouter /></Tab.Pane>
+  },
+  {
+    menuItem: (
       <Menu.Item key='login'>
         <NavLink to="/login">
           Login

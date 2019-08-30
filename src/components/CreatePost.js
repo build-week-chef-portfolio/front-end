@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { axiosWithAuth } from './AxioswithAuth';
 
-const Portfolio = ({ errors, touched, status }) => {
+const CreatePost = ({ errors, touched, status }) => {
 
   const [user, setUser] = useState([]);
 
@@ -62,7 +62,7 @@ const formikHOC = withFormik({
   }),
   handleSubmit(values, { setStatus, resetForm }) {
     axiosWithAuth()
-      .put("https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts", values)
+      .post("https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts", values)
       .then(res => {
         console.log(res);
       })
@@ -70,6 +70,6 @@ const formikHOC = withFormik({
   }
 });
 
-const UserFormWithFormik = formikHOC(Portfolio);
+const UserFormWithFormik = formikHOC(CreatePost);
 
 export default UserFormWithFormik;

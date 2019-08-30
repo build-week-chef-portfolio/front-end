@@ -9,6 +9,7 @@ import Home from './Home';
 import Portfolio from './Portfolio';
 import Login from './Login';
 import Signup from './Signup';
+import CreatePost from './CreatePost';
 
 const auth = {
   isAuthenticated: false,
@@ -49,6 +50,11 @@ export default function TabNav(props) {
         path="/portfolio"
         render={props => <Portfolio {...props} />}
       /> */}
+
+      <Route
+        path="/create"
+        render={props => <CreatePost {...props} />}
+      />
 
       <Route
         path="/login"
