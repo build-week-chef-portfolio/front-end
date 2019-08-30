@@ -13,7 +13,7 @@ const id = 5;
   return (
     <div className="App">
       <Nav />
-      <GetData address="https://chef-portfolio-buildweeks-be.herokuapp.com/" />
+      
     </div>
   );
 }
