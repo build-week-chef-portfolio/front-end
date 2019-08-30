@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
-import axios from "axios";
 
 import { axiosWithAuth } from './AxioswithAuth';
 
@@ -27,6 +26,14 @@ const Portfolio = ({ errors, touched, status }) => {
         <Field text="type" name="recipe_title" placeholder="Title" />
         {touched.recipe_title && errors.recipe_title && <p>{errors.recipe_title}</p>}
 
+        <label>Chef Location</label>
+        <Field text="type" name="chef_location" placeholder="Location" />
+        {touched.chef_location && errors.chef_location && <p>{errors.chef_location}</p>}
+
+        <label>Recipe Title</label>
+        <Field text="type" name="item_ingredients" placeholder="Title" />
+        {touched.item_ingredients && errors.item_ingredients && <p>{errors.item_ingredients}</p>}
+
         <button type="submit" value="Login">Submit!</button>
       </Form>
       {user.map(users => (
@@ -36,26 +43,28 @@ const Portfolio = ({ errors, touched, status }) => {
   )
 }
 
-const headers = { "Content-Type": "application/json", Authorization: localStorage.getItem("token") }
-
 const formikHOC = withFormik({
-  mapPropsToValues({ chef_name, recipe_title }) {
+  mapPropsToValues({ chef_name, recipe_title, chef_location, item_ingredients }) {
     return {
       chef_name: chef_name || "",
-      recipe_title: recipe_title || ""
+      recipe_title: recipe_title || "",
+      chef_location: chef_location || "",
+      chef_location: chef_location || "",
+      item_ingredients: item_ingredients || "",
     };
   },
   validationSchema: Yup.object().shape({
     chef_name: Yup.string().required(),
-    recipe_title: Yup.string().required()
+    recipe_title: Yup.string().required(),
+    chef_location: Yup.string().required(),
+    item_ingredients: Yup.string().required(),
+
   }),
   handleSubmit(values, { setStatus, resetForm }) {
-    console.log(headers);
     axiosWithAuth()
       .post("https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts", values)
       .then(res => {
         console.log(res);
-        // localStorage.setItem("chef_name", res.data.chef_name);
       })
       .catch(err => console.error(err));
   }
@@ -64,5 +73,3 @@ const formikHOC = withFormik({
 const UserFormWithFormik = formikHOC(Portfolio);
 
 export default UserFormWithFormik;
-
-// { headers: { Authorization: localStorage.chef_name } }

@@ -44,6 +44,15 @@ export default function Portfolio() {
     return (
         <div>
             <h1>View Chef Posts</h1>
+            {posts.map(post => (
+                <div>
+                    <h3>{post.chef_name}</h3>
+                    <p>{post.recipe_title}</p>
+                    <p>{post.chef_location}</p>
+                    <p>{post.item_ingredients}</p>
+                </div>
+            ))
+            }
         </div>
     )
 }
