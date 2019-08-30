@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Nav from './components/Nav';
-import CardList from './components/CardList';
+import GetData from './components/GetData';
 
 
 import './App.css';
@@ -13,7 +13,7 @@ const id = 5;
   return (
     <div className="App">
       <Nav />
-      <CardList address="https://chef-portfolio-buildweeks-be.herokuapp.com/api/" />
+      <GetData address="https://chef-portfolio-buildweeks-be.herokuapp.com/" />
     </div>
   );
 }
