@@ -14,7 +14,7 @@ const Signup = ({ errors, touched, status }) => {
   }, [status]);
 
   return (
-    <div>
+    <div className="form-container">
       <h1>Sign Up</h1>
       <Form>
         <label>Username</label>

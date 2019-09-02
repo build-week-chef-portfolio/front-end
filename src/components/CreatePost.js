@@ -49,15 +49,14 @@ const formikHOC = withFormik({
       chef_name: chef_name || "",
       recipe_title: recipe_title || "",
       chef_location: chef_location || "",
-      chef_location: chef_location || "",
       item_ingredients: item_ingredients || "",
     };
   },
   validationSchema: Yup.object().shape({
-    chef_name: Yup.string().required(),
-    recipe_title: Yup.string().required(),
-    chef_location: Yup.string().required(),
-    item_ingredients: Yup.string().required(),
+    chef_name: Yup.string().required("Name"),
+    recipe_title: Yup.string().required("Recipe"),
+    chef_location: Yup.string().required("Location"),
+    item_ingredients: Yup.string().required("Ingredients"),
 
   }),
   handleSubmit(values, { setStatus, resetForm }) {

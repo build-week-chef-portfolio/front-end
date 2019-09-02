@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 import axios from 'axios';
 
-export default function Portfolio() {
+export default function FoodCard() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function Portfolio() {
         <div>
             <h1>View Chef Posts</h1>
             {posts.map(post => (
-                <div>
+                <div className="card-container">
                     <Card>
                         <h3>{post.chef_name}</h3>
                         <p>{post.recipe_title}</p>
