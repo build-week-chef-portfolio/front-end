@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import FoodCard from './FoodCard';
 
-export default function GetData(props){
+export function GetData(props){
     const [isLoading, setIsLoading] = useState(false);
     const [dataToUse, setDataToUse] = useState([]);
     const webAddress = props.address;
