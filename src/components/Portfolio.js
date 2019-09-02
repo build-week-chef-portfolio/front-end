@@ -20,9 +20,6 @@ const Button = styled.button`
   
 `;
 
-const Portfolio = ({ errors, touched, status }) => {
-
-  const [user, setUser] = useState([]);
 
 
   useEffect(() => {
@@ -48,14 +45,12 @@ const Portfolio = ({ errors, touched, status }) => {
             <p>{post.recipe_title}</p>
             <p>{post.chef_location}</p>
             <p>{post.item_ingredients}</p>
-            <button>Edit Post</button>
+            <Button>Edit Post</Button>
           </Card>
         </div>
       ))
       }
 
     </div>
-  )
+  );
 }
-
-// /${id}
