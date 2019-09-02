@@ -30,9 +30,14 @@ const CreatePost = ({ errors, touched, status }) => {
         <Field text="type" name="chef_location" placeholder="Location" />
         {touched.chef_location && errors.chef_location && <p>{errors.chef_location}</p>}
 
-        <label>Recipe Title</label>
-        <Field text="type" name="item_ingredients" placeholder="Title" />
+        <label>Recipe Ingredients</label>
+        <Field text="type" name="item_ingredients" placeholder="ingredient1; ingredient2;" />
         {touched.item_ingredients && errors.item_ingredients && <p>{errors.item_ingredients}</p>}
+
+        <label>Pic</label>
+        {/* {AddDropZoneHere} */}
+        <Field text="type" name="pic" placeholder="Lotion" />
+        {touched.pic && errors.pic && <img src={errors.pic}/>}
 
         <button type="submit" value="Login">Submit!</button>
       </Form>
@@ -58,6 +63,7 @@ const formikHOC = withFormik({
     recipe_title: Yup.string().required(),
     chef_location: Yup.string().required(),
     item_ingredients: Yup.string().required(),
+    pic: Yup.string(),
 
   }),
   handleSubmit(values, { setStatus, resetForm }) {
@@ -67,7 +73,7 @@ const formikHOC = withFormik({
         console.log(res);
       })
       .catch(err => console.error(err));
-  }
+  },
 });
 
 const UserFormWithFormik = formikHOC(CreatePost);

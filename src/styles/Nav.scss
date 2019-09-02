@@ -3,6 +3,18 @@
   height: 60px;
   padding-top: 30px;
 
+  menu a{
+    padding-right: 30px;
+    text-decoration: none;
+    background: blue;
+    color: red;
+            
+    bottom{
+      background-color: aqua;
+    }
+  }
+  
+
   a{
     padding-right: 30px;
     text-decoration: none;
