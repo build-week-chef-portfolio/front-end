@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Field, withFormik } from "formik";
-import * as Yup from 'yup';
+
+import React, { useEffect, useState } from 'react';
+import { Card, Icon } from 'semantic-ui-react';
+import axios from 'axios';
 import styled from 'styled-components';
-import { axiosWithAuth } from './AxioswithAuth';
+
+export default function Portfolio() {
+  const [posts, setPosts] = useState([]);
+
+
+
+
 
 const Button = styled.button`
   background: black;
@@ -17,69 +24,38 @@ const Portfolio = ({ errors, touched, status }) => {
 
   const [user, setUser] = useState([]);
 
+
   useEffect(() => {
-    if (status) {
-      setUser([...user, status]);
-    }
-  }, [status]);
+    axios
+      .get('https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts', { headers: { Authorization: localStorage.token } })
+      .then(response => {
+        console.log("posts", response.data);
+        setPosts(response.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }, []);
 
   
   return (
     <div>
-      <h1>Create a Post</h1>
-      <Form>
-        <label>Name</label>
-        <Field text="type" name="chef_name" placeholder="Name" />
-        {touched.chef_name && errors.chef_name && <p>{errors.chef_name}</p>}
+      <h1>View Chef Posts</h1>
+      {posts.map(post => (
+        <div className="card-container">
+          <Card>
+            <h3>{post.chef_name}</h3>
+            <p>{post.recipe_title}</p>
+            <p>{post.chef_location}</p>
+            <p>{post.item_ingredients}</p>
+            <button>Edit Post</button>
+          </Card>
+        </div>
+      ))
+      }
 
-        <label>Recipe Title</label>
-        <Field text="type" name="recipe_title" placeholder="Title" />
-        {touched.recipe_title && errors.recipe_title && <p>{errors.recipe_title}</p>}
-
-        <label>Chef Location</label>
-        <Field text="type" name="chef_location" placeholder="Location" />
-        {touched.chef_location && errors.chef_location && <p>{errors.chef_location}</p>}
-
-        <label>Recipe Title</label>
-        <Field text="type" name="item_ingredients" placeholder="Title" />
-        {touched.item_ingredients && errors.item_ingredients && <p>{errors.item_ingredients}</p>}
-
-        <Button type="submit" value="Login">Submit!</Button>
-      </Form>
-      {user.map(users => (
-        <p key={users.id}>{users}</p>
-      ))}
     </div>
   )
 }
 
-const formikHOC = withFormik({
-  mapPropsToValues({ chef_name, recipe_title, chef_location, item_ingredients }) {
-    return {
-      chef_name: chef_name || "",
-      recipe_title: recipe_title || "",
-      chef_location: chef_location || "",
-      chef_location: chef_location || "",
-      item_ingredients: item_ingredients || "",
-    };
-  },
-  validationSchema: Yup.object().shape({
-    chef_name: Yup.string().required(),
-    recipe_title: Yup.string().required(),
-    chef_location: Yup.string().required(),
-    item_ingredients: Yup.string().required(),
-
-  }),
-  handleSubmit(values, { setStatus, resetForm }) {
-    axiosWithAuth()
-      .put("https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts", values)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => console.error(err));
-  }
-});
-
-const UserFormWithFormik = formikHOC(Portfolio);
-
-export default UserFormWithFormik;
+// /${id}

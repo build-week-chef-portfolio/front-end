@@ -1,0 +1,36 @@
+.ui.bottom{
+  background-color: lightblue;
+}
+
+.card-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+label{
+  font-size: 20px;
+}
+
+input{
+  height: 30px;
+  outline: none;
+  border: none;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  border-radius: 5px;
+  border-bottom: 3px solid #4f4d4d;;
+  background: white;
+  margin-bottom: 10px;
+
+}
+
+button{
+  background-color: dodgerblue;
+  padding: 10px;
+  border-radius: 15px;
+  outline: none;
+}
