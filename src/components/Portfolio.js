@@ -1,9 +1,29 @@
+
 import React, { useEffect, useState } from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 export default function Portfolio() {
   const [posts, setPosts] = useState([]);
+
+
+
+
+
+const Button = styled.button`
+  background: black;
+  border-style: solid;
+  border-color: black;
+  color: white;
+
+  
+`;
+
+const Portfolio = ({ errors, touched, status }) => {
+
+  const [user, setUser] = useState([]);
+
 
   useEffect(() => {
     axios
@@ -17,6 +37,7 @@ export default function Portfolio() {
       });
   }, []);
 
+  
   return (
     <div>
       <h1>View Chef Posts</h1>
@@ -32,6 +53,7 @@ export default function Portfolio() {
         </div>
       ))
       }
+
     </div>
   )
 }

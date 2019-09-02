@@ -2,6 +2,7 @@ import React from 'react';
 import { Tab, Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import AppRouter from './AppRouter';
+import styled from 'styled-components';
 
 const panes = [
   {
@@ -56,8 +57,15 @@ const panes = [
   }
 ];
 
+const TabWrapper = styled.div`
+  background: black;
+  font-color: white;
+`;
+
 export default function TabNav() {
   return (
-    <Tab panes={panes} />
+    <TabWrapper>
+      <Tab classname="nav" panes={panes} />
+    </TabWrapper>
   )
 };

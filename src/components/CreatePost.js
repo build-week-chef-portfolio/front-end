@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
-
+import styled from 'styled-components';
 import { axiosWithAuth } from './AxioswithAuth';
+
+const Button = styled.button`
+  background: black;
+  border-style: solid;
+  border-color: black;
+  color: white;
+
+  
+`;
 
 const CreatePost = ({ errors, touched, status }) => {
 
@@ -30,11 +39,16 @@ const CreatePost = ({ errors, touched, status }) => {
         <Field text="type" name="chef_location" placeholder="Location" />
         {touched.chef_location && errors.chef_location && <p>{errors.chef_location}</p>}
 
-        <label>Recipe Title</label>
-        <Field text="type" name="item_ingredients" placeholder="Title" />
+        <label>Recipe Ingredients</label>
+        <Field text="type" name="item_ingredients" placeholder="ingredient1; ingredient2;" />
         {touched.item_ingredients && errors.item_ingredients && <p>{errors.item_ingredients}</p>}
 
-        <button type="submit" value="Login">Submit!</button>
+        <label>Pic</label>
+        {/* {AddDropZoneHere} */}
+        <Field text="type" name="pic" placeholder="Lotion" />
+        {touched.pic && errors.pic && <img src={errors.pic}/>}
+
+        <Button type="submit" value="Login">Submit!</Button>
       </Form>
       {user.map(users => (
         <p key={users.id}>{users}</p>
@@ -53,10 +67,12 @@ const formikHOC = withFormik({
     };
   },
   validationSchema: Yup.object().shape({
+
     chef_name: Yup.string().required("Name"),
     recipe_title: Yup.string().required("Recipe"),
     chef_location: Yup.string().required("Location"),
     item_ingredients: Yup.string().required("Ingredients"),
+
 
   }),
   handleSubmit(values, { setStatus, resetForm }) {
@@ -66,7 +82,7 @@ const formikHOC = withFormik({
         console.log(res);
       })
       .catch(err => console.error(err));
-  }
+  },
 });
 
 const UserFormWithFormik = formikHOC(CreatePost);

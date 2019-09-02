@@ -27,6 +27,7 @@ export default function FoodCard() {
                         <p>{post.recipe_title}</p>
                         <p>{post.chef_location}</p>
                         <p>{post.item_ingredients}</p>
+                        <img src={post.pic}/>
                     </Card>
                 </div>
             ))
