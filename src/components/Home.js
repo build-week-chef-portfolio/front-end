@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { GetData } from './GetData';
 import FoodCard from './FoodCard';
 import styled from 'styled-components';
 
@@ -8,6 +8,7 @@ const Title = styled.h1`
 `;
 
 export default function Home() {
+  const data = GetData('https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts/1');
   return (
     <div>
       <div className="top-content">
@@ -16,8 +17,8 @@ export default function Home() {
         </div>
       </div>
       <div className="middle-cta">
-        <FoodCard />
         <div>
+          {console.log(GetData('https://chef-portfolio-buildweeks-be.herokuapp.com/api/posts/1'))}
           <p>&copy; 2019 Chef Protfolio</p>
         </div>
       </div>

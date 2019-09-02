@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background: black;
+  border-style: solid;
+  border-color: black;
+  color: white;
+
+  
+`;
 
 const Signup = ({ errors, touched, status }) => {
 
@@ -32,7 +42,7 @@ const Signup = ({ errors, touched, status }) => {
         <label>Location</label>
         <Field text="type" name="location" placeholder="Location" />
 
-        <button type="submit" value="Login">Submit!</button>
+        <Button type="submit" value="Login">Submit!</Button>
       </Form>
       {user.map(users => (
         <p key={users.id}>{users.username}</p>

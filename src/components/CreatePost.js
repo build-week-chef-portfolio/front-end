@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
-
+import styled from 'styled-components';
 import { axiosWithAuth } from './AxioswithAuth';
+
+const Button = styled.button`
+  background: black;
+  border-style: solid;
+  border-color: black;
+  color: white;
+
+  
+`;
 
 const CreatePost = ({ errors, touched, status }) => {
 
@@ -39,7 +48,7 @@ const CreatePost = ({ errors, touched, status }) => {
         <Field text="type" name="pic" placeholder="Lotion" />
         {touched.pic && errors.pic && <img src={errors.pic}/>}
 
-        <button type="submit" value="Login">Submit!</button>
+        <Button type="submit" value="Login">Submit!</Button>
       </Form>
       {user.map(users => (
         <p key={users.id}>{users}</p>

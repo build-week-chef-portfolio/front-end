@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
-
+import styled from 'styled-components';
 import { axiosWithAuth } from './AxioswithAuth';
+
+const Button = styled.button`
+  background: black;
+  border-style: solid;
+  border-color: black;
+  color: white;
+
+  
+`;
 
 const Portfolio = ({ errors, touched, status }) => {
 
@@ -14,6 +23,7 @@ const Portfolio = ({ errors, touched, status }) => {
     }
   }, [status]);
 
+  
   return (
     <div>
       <h1>Create a Post</h1>
@@ -34,7 +44,7 @@ const Portfolio = ({ errors, touched, status }) => {
         <Field text="type" name="item_ingredients" placeholder="Title" />
         {touched.item_ingredients && errors.item_ingredients && <p>{errors.item_ingredients}</p>}
 
-        <button type="submit" value="Login">Submit!</button>
+        <Button type="submit" value="Login">Submit!</Button>
       </Form>
       {user.map(users => (
         <p key={users.id}>{users}</p>
